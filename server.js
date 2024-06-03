@@ -1,5 +1,4 @@
 const express = require('express');
-
 const { Pool } = require('pg');
 
 const PORT = process.env.PORT || 3001;
@@ -24,7 +23,6 @@ const pool = new Pool(
   
   pool.connect();
 
-// Create an employee
 
 
 
