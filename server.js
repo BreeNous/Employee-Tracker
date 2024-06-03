@@ -25,6 +25,22 @@ const pool = new Pool(
   pool.connect();
 
 // Create an employee
+app.post('/api/new-employee', ({ body }, res) => {
+  const sql = `INSERT INTO employees (first_name, last_name)
+    VALUES ($1)`;
+  const params = [body.movie_name];
+
+  pool.query(sql, params, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.json({
+      message: 'success',
+      data: body
+    });
+  });
+});
 
 
 
